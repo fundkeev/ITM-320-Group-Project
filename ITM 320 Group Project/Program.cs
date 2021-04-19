@@ -83,6 +83,7 @@ namespace ITM_320_Group_Project
                         case 3:
                             Console.WriteLine("Execute 3"); // Levi app 1
 
+                            // the below are just examples and should be changed later
                             // example to get a single vehicle via index number
                             VehicleList V = new VehicleList();
                             V.Open();
@@ -93,7 +94,7 @@ namespace ITM_320_Group_Project
                             myVehicle.ChangeStatus("Sold");
                             myVehicle.dateSold = DateTime.Now;
 
-                            // saving that change back to the file. Replaces the index number parameter with the vehicle object parameter
+                            // saving that change back to the file. Replaces the vehicle at index with the vehicle object parameter
                             V.Replace(6, myVehicle);
 
                             Console.ReadLine();
