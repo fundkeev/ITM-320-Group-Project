@@ -103,6 +103,12 @@ namespace ITM_320_Group_Project
 
                         case 4:
                             Console.WriteLine("Execute 4"); // Levi app 2
+
+                            GetMPG get = new GetMPG();
+
+                            double avgMPG = get.AvgMPG();
+                            Console.WriteLine("Average MPG in the database is: " + avgMPG);
+
                             Console.ReadLine();
                             Console.Clear();
                             break;
@@ -129,7 +135,7 @@ namespace ITM_320_Group_Project
                             Console.Clear();
                             break;
                     }
-                } while (userinput != 4);
+                } while (userinput != 7);
             }
             catch (FormatException)
             {
