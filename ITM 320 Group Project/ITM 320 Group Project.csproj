@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ChangeCarStatusToSold">
+      <HintPath>.\ChangeCarStatusToSold.dll</HintPath>
+    </Reference>
+    <Reference Include="CreateNewLoan">
+      <HintPath>.\CreateNewLoan.dll</HintPath>
+    </Reference>
+    <Reference Include="DatedProfit">
+      <HintPath>.\DatedProfit.dll</HintPath>
+    </Reference>
+    <Reference Include="MPGofLot">
+      <HintPath>.\MPGofLot.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,7 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetMPG.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

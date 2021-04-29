@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using System.IO;
 using Vehicles;
 using VehicleFunctions;
+using DatedProfit;
+using MPGofLot;
+using ChangeCarStatusToSold;
+using CreateNewLoan;
 
 namespace ITM_320_Group_Project
 {
@@ -16,9 +20,7 @@ namespace ITM_320_Group_Project
             Login(); // simple login system
 
             MenuWrapper(); // go to the main menu after logging in
-
         }
-        
 
         public static void Login()
         {
@@ -67,61 +69,44 @@ namespace ITM_320_Group_Project
                     switch (userinput)
                     {
                         case 1:
-                            ViewVehicles myApp1 = new ViewVehicles();
+                            ViewVehicles myApp1 = new ViewVehicles(); // Keevin app 1
                             Console.Clear();
                             myApp1.View();
                             Console.Clear();
                             break;
 
                         case 2:
-                            AddVehicle myApp2 = new AddVehicle();
+                            AddVehicle myApp2 = new AddVehicle(); // Keevin app 2
                             Console.Clear();
                             myApp2.Add();
                             Console.Clear();
                             break;
 
                         case 3:
-                            Console.WriteLine("Execute 3"); // Levi app 1
-
-                            // the below are just examples and should be changed later
-                            // example to get a single vehicle via index number
-                            VehicleList V = new VehicleList();
-                            V.Open();
-                            Vehicle myVehicle = V.Get(6);
-
-                            // example to change something on that single vehicle. Selling it in this case
-                            myVehicle.sellingPrice = 34590m;
-                            myVehicle.ChangeStatus("Sold");
-                            myVehicle.dateSold = DateTime.Now;
-
-                            // saving that change back to the file. Replaces the vehicle at index with the vehicle object parameter
-                            V.Replace(6, myVehicle);
-
+                            Profit myApp3 = new Profit(); // Levi app 1
+                            myApp3.Input();
                             Console.ReadLine();
                             Console.Clear();
                             break;
 
                         case 4:
-                            Console.WriteLine("Execute 4"); // Levi app 2
-
-                            GetMPG get = new GetMPG();
-
-                            double avgMPG = get.AvgMPG();
-                            Console.WriteLine("Average MPG in the database is: " + avgMPG);
-
+                            GetMPG myApp4 = new GetMPG(); // Levi app 2
+                            myApp4.GetAvgMPG();
                             Console.ReadLine();
                             Console.Clear();
                             break;
 
                         case 5:
-                            Console.WriteLine("Execute 5"); // George app 1
-                            Console.ReadLine();
+                            UpdateSaleStatus newSale = new UpdateSaleStatus(); // George app 1
+                            Console.Clear();
+                            newSale.updateSold();
                             Console.Clear();
                             break;
 
                         case 6:
-                            Console.WriteLine("Execute 6"); // George app 2
-                            Console.ReadLine();
+                            LoanCalculation myLoan = new LoanCalculation(); // George app 2
+                            Console.Clear();
+                            myLoan.CalcLoan();
                             Console.Clear();
                             break;
 
@@ -153,10 +138,10 @@ namespace ITM_320_Group_Project
 
             Console.WriteLine("1. View Vehicles in DB (Keevin)");
             Console.WriteLine("2. Add New Vehicle to DB (Keevin)");
-            Console.WriteLine("3. Name of Bus App Function 3 (Levi)");
-            Console.WriteLine("4. Name of Bus App Function 4 (Levi)");
-            Console.WriteLine("5. Name of Bus App Function 5 (George)");
-            Console.WriteLine("6. Name of Bus App Function 6 (George)");
+            Console.WriteLine("3. Calculate Profit Between Two Dates (Levi)");
+            Console.WriteLine("4. Calculate Average MPG of Available Vehicles (Levi)");
+            Console.WriteLine("5. Change Pending Vehicle Status to Sold (George)");
+            Console.WriteLine("6. Calculate Loan (George)");
             Console.WriteLine("7. Exit");
 
             int result = Convert.ToInt16(Console.ReadLine());
