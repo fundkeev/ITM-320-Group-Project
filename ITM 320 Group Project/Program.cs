@@ -90,7 +90,7 @@ namespace ITM_320_Group_Project
                             break;
 
                         case 4:
-                            GetMPG myApp4 = new GetMPG(); // Levi app 2
+                            GetAvailableMPG myApp4 = new GetAvailableMPG(); // Levi app 2
                             myApp4.GetAvgMPG();
                             Console.ReadLine();
                             Console.Clear();
