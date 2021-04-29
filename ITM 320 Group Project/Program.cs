@@ -11,6 +11,12 @@ using MPGofLot;
 using ChangeCarStatusToSold;
 using CreateNewLoan;
 
+// Project main menu. Lets you select one of six different functions
+// coded by: Keevin Funderburg, George Speare, Levi Eastmond
+// date: 4/29/2021
+// for ITM 320
+// keevinfunderburg@u.boisestate.edu
+
 namespace ITM_320_Group_Project
 {
     class Program
@@ -33,11 +39,11 @@ namespace ITM_320_Group_Project
                 Console.WriteLine("Type \"quit\" or \"q\" to exit.");
                 Console.Write("Username: ");
                 username = Console.ReadLine();
-                if (username.ToLower() == "quit" || username.ToLower() == "q") { Environment.Exit(0); }
+                if (username.ToLower() == "quit" || username.ToLower() == "q") { Environment.Exit(0); } // quits the program
 
                 Console.Write("Password: ");
                 password = Console.ReadLine();
-                if (password.ToLower() == "quit" || password.ToLower() == "q") { Environment.Exit(0); }
+                if (password.ToLower() == "quit" || password.ToLower() == "q") { Environment.Exit(0); } // quits the program
 
                 if (username == "BSU" && password == "BRONCO")  // not secure in the least but it's just for show, really
                 {
@@ -50,10 +56,10 @@ namespace ITM_320_Group_Project
                 {
                     Console.WriteLine("Incorrect username and/or password. Please try again.");
                     Console.ReadLine();
-                    username = "";
+                    username = ""; // need to set the username to an empty string so it can loop properly
                     Console.Clear();
                 }
-            } while (username == "");
+            } while (username == ""); // makes sure it continues looping until the correct username and password are entered
         }
 
         public static void MenuWrapper()
@@ -84,6 +90,7 @@ namespace ITM_320_Group_Project
 
                         case 3:
                             Profit myApp3 = new Profit(); // Levi app 1
+                            Console.Clear();
                             myApp3.Input();
                             Console.ReadLine();
                             Console.Clear();
@@ -91,6 +98,7 @@ namespace ITM_320_Group_Project
 
                         case 4:
                             GetAvailableMPG myApp4 = new GetAvailableMPG(); // Levi app 2
+                            Console.Clear();
                             myApp4.GetAvgMPG();
                             Console.ReadLine();
                             Console.Clear();
@@ -127,7 +135,7 @@ namespace ITM_320_Group_Project
                 Console.WriteLine("Please make sure you select option (1) to (7) only");
                 Console.ReadLine();
                 Console.Clear();
-                MenuWrapper();
+                MenuWrapper(); // reruns the menu if there's an exception
             }
         }
 
@@ -136,12 +144,12 @@ namespace ITM_320_Group_Project
             Console.WriteLine("Car Dealership Sales System");
             Console.WriteLine();
 
-            Console.WriteLine("1. View Vehicles in DB (Keevin)");
-            Console.WriteLine("2. Add New Vehicle to DB (Keevin)");
-            Console.WriteLine("3. Calculate Profit Between Two Dates (Levi)");
-            Console.WriteLine("4. Calculate Average MPG of Available Vehicles (Levi)");
-            Console.WriteLine("5. Change Pending Vehicle Status to Sold (George)");
-            Console.WriteLine("6. Calculate Loan (George)");
+            Console.WriteLine("1. View Vehicles in DB (Keevin)");                       // VehicleFunctions.dll
+            Console.WriteLine("2. Add New Vehicle to DB (Keevin)");                     // VehicleFunctions.dll
+            Console.WriteLine("3. Calculate Profit Between Two Dates (Levi)");          // DatedProfit.dll
+            Console.WriteLine("4. Calculate Average MPG of Available Vehicles (Levi)"); // MPGofLot.dll
+            Console.WriteLine("5. Change Pending Vehicle Status to Sold (George)");     // ChangeCarStatusToSold.dll
+            Console.WriteLine("6. Calculate Loan (George)");                            // CreateNewLoan.dll
             Console.WriteLine("7. Exit");
 
             int result = Convert.ToInt16(Console.ReadLine());
